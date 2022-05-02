@@ -1,7 +1,11 @@
 const Selector = () => {
   return (
     <div>
-      <p>セレクター</p>
+      <select>
+        <option>United States</option>
+        <option>China</option>
+        <option>Japan</option>
+      </select>
     </div>
   );
 };
