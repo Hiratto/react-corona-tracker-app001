@@ -6,7 +6,7 @@ const Selector = () => {
     <div>
       <select>
         {countriesJson.map((country, index) => 
-          <option>{index}{country.Country}</option>
+          <option key={index} value={country.Slug}>{country.Country}</option>
          )}
       </select>
     </div>
