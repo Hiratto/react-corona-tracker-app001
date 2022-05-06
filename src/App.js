@@ -28,7 +28,6 @@ function App() {
   }
   return (
     <div>
-      {console.log(countryData)}
       <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData}/>
     </div>
   );
