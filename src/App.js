@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {Route, Switch, BrowserRouter } from "react-router-dom";
 import countriesJson from "./countries.json";
 import './App.css';
 import TopPage from './pages/TopPage';
@@ -27,9 +28,16 @@ function App() {
     })
   }
   return (
-    <div>
-      <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
-    </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
+          </Route>
+          <Route>
+            <p>ワールド</p>
+          </Route>
+        </Switch>
+      </BrowserRouter>
   );
 }
 
