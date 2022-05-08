@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/">
             <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
           </Route>
-          <Route>
+          <Route exact path="/world">
             <p>ワールド</p>
           </Route>
         </Switch>
