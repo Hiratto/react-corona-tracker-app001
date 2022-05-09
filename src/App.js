@@ -3,6 +3,7 @@ import {Route, Switch, BrowserRouter } from "react-router-dom";
 import countriesJson from "./countries.json";
 import './App.css';
 import TopPage from './pages/TopPage';
+import WorldPage from "./pages/WorldPage";
 
 function App() {
   const [country,setCountry] = useState("");
@@ -34,7 +35,7 @@ function App() {
             <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
           </Route>
           <Route exact path="/world">
-            <p>ワールド</p>
+            <WorldPage />
           </Route>
         </Switch>
       </BrowserRouter>
