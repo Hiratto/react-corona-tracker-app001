@@ -14,6 +14,8 @@ function App() {
     newRecovered: "",
     totalRecovered: ""
   });
+  const [allCountriesData, setAllCountriesData] = useState([]);
+
 
   const getCountryData = () => {
     fetch(`https://api.covid19api.com/country/${country}`)
@@ -28,6 +30,12 @@ function App() {
       });
     })
   }
+
+  const getAllCountriesData = () => {
+    fetch("https://api.covid19api.com/summary")
+    .then(res => res.json())
+    .then(data => setAllCountriesData(data.Countries))
+  }
   return (
       <BrowserRouter>
         <Switch>
@@ -35,7 +43,7 @@ function App() {
             <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
           </Route>
           <Route exact path="/world">
-            <WorldPage />
+            <WorldPage getAllCountriesData={getAllCountriesData}allCountriesData={allCountriesData}/>
           </Route>
         </Switch>
       </BrowserRouter>
@@ -45,6 +53,3 @@ function App() {
 export default App;
 
 
-// // 
-// date:data[data.length1].Date,newConfirmed:data[data.length1].Confirmeddata[data.length2].Confirmed,//追加totalConfirmed:data[data.length1].Confirmed,newRecovered:data[data.length1].Recovereddata[data.length2].Recovered,//追加totalRecovered:data[data.length1].Recovered
-// // 
