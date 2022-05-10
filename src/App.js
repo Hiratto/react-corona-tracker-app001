@@ -1,9 +1,9 @@
 import {useState, useEffect } from "react";
 import {Route, Switch, BrowserRouter } from "react-router-dom";
 import countriesJson from "./countries.json";
-import './App.css';
-import TopPage from './pages/TopPage';
+import TopPage from "./pages/TopPage";
 import WorldPage from "./pages/WorldPage";
+import './App.css';
 
 function App() {
   const [country,setCountry] = useState("");
@@ -26,7 +26,7 @@ function App() {
         newConfirmed: data[ data.length -1 ].Confirmed - data[ data.length -2 ].Confirmed,
         totalConfirmed: data[ data.length -1 ].Confirmed,
         newRecovered: data[ data.length -1 ].Recovered - data[ data.length -2 ].Recovered,
-        totalRecovered: data[ data.length -1 ].Recovered
+        totalRecovered: data[ data.length -1 ].Recovered,
       });
     })
   }
@@ -42,7 +42,7 @@ function App() {
             <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
           </Route>
           <Route exact path="/world">
-            <WorldPage allCountriesData={allCountriesData} allCountriesData={allCountriesData}/>
+            <WorldPage allCountriesData={allCountriesData}/>
           </Route>
         </Switch>
       </BrowserRouter>
